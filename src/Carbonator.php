@@ -44,7 +44,20 @@ class Carbonator
      */
     public static function parseToDefaultTz($input, $tz_parse = null)
     {
-        // Parse in the specified timezone, but then always move to default timezone
+        // Parse in the specified timezone, and then always move to default timezone
         return self::parseToTz($input, null, $tz_parse);
+    }
+
+    /**
+     * @param string|DateTime $input
+     * @param string $format
+     * @param string|DateTimeZone $tz
+     * @return string|null
+     */
+    public static function formatInTz($input, $format, $tz=null) {
+        if($c = self::parseToTz($input, $tz)) {
+            return $c->format($format);
+        }
+        return null;
     }
 }
