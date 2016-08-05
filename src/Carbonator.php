@@ -7,6 +7,8 @@ use DateTimeZone;
 
 class Carbonator
 {
+    const DATETIMELOCAL = 'Y-m-d\TH:i:s';
+
     /**
      * @param string|DateTime $input
      * @param string|DateTimeZone $tz_target
@@ -51,13 +53,27 @@ class Carbonator
     /**
      * @param string|DateTime $input
      * @param string $format
-     * @param string|DateTimeZone $tz
+     * @param string|DateTimeZone $tz_target
+     * @param string|DateTimeZone $tz_parse
      * @return string|null
      */
-    public static function formatInTz($input, $format, $tz=null) {
-        if($c = self::parseToTz($input, $tz)) {
+    public static function formatInTz($input, $format, $tz_target = null, $tz_parse = null)
+    {
+        if ($c = self::parseToTz($input, $tz_target, $tz_parse)) {
             return $c->format($format);
         }
+
         return null;
+    }
+
+    /**
+     * @param string|DateTime $input
+     * @param string|DateTimeZone $tz_target
+     * @param string|DateTimeZone $tz_parse
+     * @return string|null
+     */
+    public static function parseToDatetimeLocal($input, $tz_target = null, $tz_parse = null)
+    {
+        return self::formatInTz($input, self::DATETIMELOCAL, $tz_target, $tz_parse);
     }
 }

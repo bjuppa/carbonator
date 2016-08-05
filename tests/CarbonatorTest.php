@@ -70,4 +70,28 @@ class CarbonatorTest extends PHPUnit_Framework_TestCase
             Carbonator::formatInTz('2016-08-05 13:37 +01:00', Carbon::W3C, '+2')
         );
     }
+
+    public function testParseToDatetimeLocal()
+    {
+        $this->assertEquals(
+            '2016-08-05T12:37:00',
+            Carbonator::parseToDatetimeLocal('2016-08-05 13:37 +01:00')
+        );
+    }
+
+    public function testParseToDatetimeLocalWithTargetTz()
+    {
+        $this->assertEquals(
+            '2016-08-05T13:37:00',
+            Carbonator::parseToDatetimeLocal('2016-08-05 13:37 +01:00', '+1')
+        );
+    }
+
+    public function testParseToDatetimeLocalWithParseTz()
+    {
+        $this->assertEquals(
+            '2016-08-05T15:37:00',
+            Carbonator::parseToDatetimeLocal('2016-08-05 13:37', '+1', '-1')
+        );
+    }
 }
