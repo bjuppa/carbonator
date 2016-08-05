@@ -38,4 +38,19 @@ class CarbonatorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('-01:00', $c->tzName);
         $this->assertNotEquals('13:37:00', $c->toTimeString());
     }
+
+    public function testParseToDefaultTz() {
+        $c = Carbonator::parseToDefaultTz('tomorrow 13:37');
+
+        $this->assertTrue($c->utc);
+        $this->assertEquals('13:37:00', $c->toTimeString());
+    }
+
+    public function testParseToDefaultTzWithParseTz()
+    {
+        $c = Carbonator::parseToDefaultTz('tomorrow 13:37', 'Europe/Stockholm');
+
+        $this->assertTrue($c->utc);
+        $this->assertNotEquals('13:37:00', $c->toTimeString());
+    }
 }

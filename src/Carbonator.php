@@ -15,21 +15,36 @@ class Carbonator
      */
     public static function parseToTz($input, $tz_target = null, $tz_parse = null)
     {
-        // Parse in target timezone if parse timezone not specified
-        $tz_parse = $tz_parse ?: $tz_target;
-
         if ($input instanceof DateTime) {
+            // Any instances of DateTime (e.g. Carbon) can be used with their current timezone
+            // We ignore $tz_parse, just as parsing a string including timezone does
             $input = Carbon::instance($input);
         } elseif (strlen($input)) {
+            // Not parsing if "empty", but lets 0 through - it will be interpreted as unix timestamp
             try {
-                $input = Carbon::parse($input, $tz_parse);
+                // Strings are parsed in the specified timezone or the target timezone
+                $input = Carbon::parse($input, $tz_parse ?: $tz_target);
             } catch (\Exception $e) {
+                // Any failed parsing
                 return null;
             }
         } else {
+            // Avoiding empty string interpreted as 'now' if parsed
             return null;
         }
 
+        // Move the time into the target (or default) timezone
         return $input->tz($tz_target);
+    }
+
+    /**
+     * @param string|DateTime $input
+     * @param string|DateTimeZone $tz_parse
+     * @return Carbon|null
+     */
+    public static function parseToDefaultTz($input, $tz_parse = null)
+    {
+        // Parse in the specified timezone, but then always move to default timezone
+        return self::parseToTz($input, null, $tz_parse);
     }
 }
