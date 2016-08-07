@@ -110,4 +110,15 @@ class CarbonatorTest extends PHPUnit_Framework_TestCase
             Carbonator::parseToDatetime('2016-08-05 13:37', '+1')
         );
     }
+
+    public function testParseArrayReturnsNull()
+    {
+        $this->assertNull(Carbonator::parse([
+            'year' => '2016',
+            'month' => '08',
+            'day' => '07',
+            'hour' => '13',
+            'minute' => '45'
+        ]));
+    }
 }
