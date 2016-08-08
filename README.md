@@ -43,21 +43,36 @@ echo Carbonator::parseToDatetime($in_namibia);
 ## Installation & Configuration
 > composer require fewagency/carbonator
 
+## Background
+The [Carbon](http://carbon.nesbot.com) package is excellent,
+but it doesn't support parsing other `DateTime` instances while *keeping their timezone*.
+That's just the behaviour of the [PHP `DateTime` constructor](http://php.net/manual/en/datetime.construct.php)
+and not much to do about.
+
+Also, `Carbon` throws exceptions on errors.
+To be able to parse any user input without having to filter or validate it first,
+I wanted wrappers that just returns `null` when input can't be parsed. 
+
+I think it makes sense putting these opinionated parsing and display methods into a separate
+helper package instead of having `Carbon` do even more work.
+
 ## Usage
 
 ### The first parameter - `$input`
 All of `Carbonator`'s methods take a `string` or
 [PHP `DateTime`](http://php.net/manual/en/class.datetime.php)
 instance as the *first* `$input` parameter.
+
 This `$input` will be turned into a `Carbon` instance to process.
 Remember that `Carbon` extends `DateTime` and can always be used safely as input.
+
 Any empty `$input` or any errors in parsing will make methods return `null`.
 
 ### The last parameter - `$tz_parse`
 All of `Carbonator`'s methods also take the `$tz_parse` *timezone* as the *last* parameter.
 The `$tz_parse` timezone will be used as context when parsing an `$input` string,
 but will be ignored when parsing `DateTime` instances, as they already have a timezone.
-As per default `DateTime` behaviour, it will also be ignored whenever there is timezone
+As per default `DateTime` behaviour, `$tz_parse` will also be ignored whenever there is timezone
 information supplied *within the string*.
 
 ### Timezone parameters
