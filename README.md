@@ -1,14 +1,15 @@
 # Carbonator
-Datetime helpers built on [Carbon](http://carbon.nesbot.com).
+A collection of datetime helpers built on [Carbon](http://carbon.nesbot.com).
 They help you easily parse or convert `string`s or `DateTime`s between timezones (and format them) with one single call.
 
-A good pattern is to keep your app working with times in UTC timezone internally at all times
+A good pattern is to always keep your app working with times in the **UTC** timezone internally
 and to also store any time data in that timezone.
+
 1. Actively convert any times to UTC when user data enters the application.
 This is the perfect job for `Carbonator::parseToDefaultTz($input, $tz_parse = null)`.
-2. If needed, convert to the user's timezone just before display.
+2. If needed, convert to the user's timezone just before display or when populating inputs.
 `parseToDatetimeLocal($input, $tz_target = null, $tz_parse = null)`
-is one of the method that can be used to directly format a string for display.
+is one of the methods that can be used to directly format a string for display.
 
 ## Examples
 ```php
