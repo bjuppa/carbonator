@@ -1,6 +1,6 @@
 # Carbonator
 Datetime helpers built on [Carbon](http://carbon.nesbot.com).
-Helps you easily parse or convert `string`s or `DateTime`s between timezones, and format with one call.
+They help you easily parse or convert `string`s or `DateTime`s between timezones (and format them) with one single call.
 
 ```php
 // Create DateTime in any timezone and get it in your app's default timezone:
