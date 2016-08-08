@@ -48,7 +48,12 @@ class Carbonator
 
         if ($input instanceof Carbon) {
             // Move the time into the target (or default) timezone
-            $input->tz($tz_target);
+            try {
+                $input->tz($tz_target);
+            } catch (\Exception $e) {
+                // Invalid timezone
+                return null;
+            }
         }
 
         return $input;
