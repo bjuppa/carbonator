@@ -3,7 +3,7 @@ A collection of datetime helpers built on [Carbon](http://carbon.nesbot.com).
 They help you easily parse or convert `string`s or `DateTime`s between timezones (and format them) with one single call.
 
 A good pattern is to always keep your app working with times in the **UTC** timezone internally
-and to also store any time data in that timezone.
+and to store any time data in that default timezone.
 
 1. Actively convert any times to UTC when user data enters the application.
 This is the perfect job for `Carbonator::parseToDefaultTz($input, $tz_parse = null)`.
