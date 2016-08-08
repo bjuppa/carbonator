@@ -43,8 +43,7 @@ class Carbonator
      */
     public static function parseToTz($input, $tz_target = null, $tz_parse = null)
     {
-        // Strings are parsed in the specified timezone or the target timezone
-        $input = self::parse($input, $tz_parse ?: $tz_target);
+        $input = self::parse($input, $tz_parse);
 
         if ($input instanceof Carbon) {
             // Move the time into the target (or default) timezone

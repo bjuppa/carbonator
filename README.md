@@ -42,8 +42,6 @@ from the 2nd parameter. The output is just guaranteed to be `Carbon` or `null`.
 
 `parseToTz($input, $tz_target = null, $tz_parse = null)`
 returns a `Carbon` instance, guaranteed to be in the `$tz_target` timezone.
-If no `$tz_parse` timezone is supplied, the `$tz_target` parameter will be used as
-parsing context too.
 
 `parseToDefaultTz($input, $tz_parse = null)` returns a `Carbon` instance,
 guaranteed to be in the PHP default timezone.

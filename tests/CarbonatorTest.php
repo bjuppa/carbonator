@@ -25,10 +25,10 @@ class CarbonatorTest extends PHPUnit_Framework_TestCase
 
     public function testParseToTzWithTargetTz()
     {
-        $c = Carbonator::parseToTz('tomorrow 13:37', 'Europe/Stockholm');
+        $c = Carbonator::parseToTz('tomorrow 13:37', '+1');
 
-        $this->assertEquals('Europe/Stockholm', $c->tzName);
-        $this->assertEquals('13:37:00', $c->toTimeString());
+        $this->assertEquals('+01:00', $c->tzName);
+        $this->assertEquals('14:37:00', $c->toTimeString());
     }
 
     public function testParseToTzWithParseTz()
