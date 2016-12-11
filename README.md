@@ -168,6 +168,9 @@ Don’t set it manually unless you need to, in which case it should be the same 
 Laravel config, i.e `'UTC'`.
 Actually, pulling in `config('app.timezone')` in the database config file works too!.
 
+## Other methods
+Here's a good read on [Getting MySQL To Do It](https://www.mettle.io/blog/post/mysql-php-timezone/) when it comes to timezones and PHP.
+
 ## Authors
 I, Björn Nilsved, work at the largest communication agency in southern Sweden.
 We call ourselves [FEW](http://fewagency.se) (oh, the irony).
