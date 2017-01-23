@@ -94,7 +94,7 @@ and you should keep that as `UTC` unless you really know what you're trying to a
 another setting.
 Read more below in [Check your setup](#checkyoursetup).
 
-If you want to help your user's select a timezone,
+If you want to help your users select a timezone,
 [PHP's `timezone_identifiers_list()`](http://php.net/manual/en/function.timezone-identifiers-list.php)
 is a nice tool to find relevant timezones by country or continent
 and [PHP's `timezone_abbreviations_list()`](http://php.net/manual/en/datetimezone.listabbreviations.php)
