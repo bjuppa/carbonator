@@ -136,7 +136,7 @@ This console command will check your Linux system timezone:
 
 Hopefully it's `UTC`.
 
-This query can be run by MySql to check which timezones your database is using:
+This query can be run by MySQL to check which timezones your database is using:
 ```mysql
 SELECT @@global.time_zone, @@session.time_zone
 ```
@@ -162,7 +162,7 @@ DB::select('SELECT @@global.time_zone, @@session.time_zone');
 ```
 
 Again, hopefully both are reported as `SYSTEM` or `UTC`.
-If the session timezone is wrong, an optional `'timezone'` parameter can be set on mysql connections
+If the session timezone is wrong, an optional `'timezone'` parameter can be set on MySQL connections
 in your app's `config/databases.php`.
 Don’t set it manually unless you need to, in which case it should be the same as the
 Laravel config, i.e `'UTC'`.
