@@ -76,7 +76,7 @@ As per default `DateTime` behaviour, `$tz_parse` will also be ignored whenever t
 information supplied *within the string*.
 
 ### Timezone parameters
-Timezones can be supplied in `string` format (e.g. `'Europe/Stockholm'` or `'+01:00'`) or a
+Timezones can be supplied in `string` format (e.g. `'Europe/Stockholm'` or `'+01:00'`) or as a
 [PHP `DateTimeZone`](http://php.net/manual/en/class.datetimezone.php) instance.
 
 Remember, named timezones like `Europe/Stockholm` takes daylight savings time (summer time)
