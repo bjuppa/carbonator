@@ -166,7 +166,7 @@ If the session timezone is wrong, an optional `'timezone'` parameter can be set 
 in your app's `config/databases.php`.
 Don’t set it manually unless you need to, in which case it should be the same as the
 Laravel config, i.e `'UTC'`.
-Actually, pulling in `config('app.timezone')` in the database config file works too!.
+Actually, pulling in `config('app.timezone')` in the database config file works too!
 
 ## Other methods
 Here's a good read on [Getting MySQL To Do It](https://www.mettle.io/blog/post/mysql-php-timezone/) when it comes to timezones and PHP.
