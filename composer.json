@@ -1,9 +1,10 @@
 {
   "name": "fewagency/carbonator",
-  "description": "Datetime helpers built on Carbon",
+  "description": "Datetime helpers for timezone handling",
   "keywords": [
     "datetime",
     "datetime-local",
+    "timezone",
     "helper",
     "Carbon"
   ],
