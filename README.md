@@ -1,5 +1,7 @@
 # Carbonator
 
+[![Build Status](https://travis-ci.org/bjuppa/carbonator.svg?branch=master)](https://travis-ci.org/bjuppa/carbonator)
+
 A collection of datetime helpers built on [Carbon](http://carbon.nesbot.com).
 They help you easily parse or convert `string`s or `DateTime`s between timezones (and format them) with one single call.
 
