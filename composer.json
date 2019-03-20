@@ -10,7 +10,7 @@
   ],
   "minimum-stability": "stable",
   "license": "MIT",
-
+  
   "authors": [
     {
       "name": "Bjorn Nilsved",
@@ -28,5 +28,8 @@
     "psr-4": {
       "FewAgency\\Carbonator\\": "src"
     }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   }
 }
