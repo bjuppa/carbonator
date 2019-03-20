@@ -1,7 +1,7 @@
 <?php
 
-use FewAgency\Carbonator\Carbonator;
 use Carbon\Carbon;
+use FewAgency\Carbonator\Carbonator;
 use PHPUnit\Framework\TestCase;
 
 class CarbonatorTest extends TestCase
@@ -40,7 +40,8 @@ class CarbonatorTest extends TestCase
         $this->assertEquals('11:37:00', $c->toTimeString());
     }
 
-    public function testParseToTzWithInvalidTargetTz() {
+    public function testParseToTzWithInvalidTargetTz()
+    {
         $c = Carbonator::parseToTz('tomorrow 13:37', 'Invalid tz', 'UTC');
 
         $this->assertNull($c);
@@ -125,7 +126,7 @@ class CarbonatorTest extends TestCase
             'month' => '08',
             'day' => '07',
             'hour' => '13',
-            'minute' => '45'
+            'minute' => '45',
         ]));
     }
 }
