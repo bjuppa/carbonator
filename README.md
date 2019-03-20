@@ -33,13 +33,6 @@ echo Carbonator::parseToDatetimeLocal($in_utc, 'Asia/Tokyo');
 // 2016-08-07T22:37:00
 
 
-// Populate a datetime input
-$in_namibia = Carbon::parse('2016-08-07 13:37 Africa/Windhoek');
-// Windhoek is 1 hour ahead of UTC when not on daylight savings time
-echo Carbonator::parseToDatetime($in_namibia);
-// 2016-08-07T13:37:00+01:00
-```
-
 ## Installation & Configuration
 > composer require fewagency/carbonator
 
@@ -122,13 +115,6 @@ The string is guaranteed to be in the `$tz_target` timezone.
 Returns a string formatted for a
 [HTML5 `datetime-local` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
 in the `'Y-m-d\TH:i:s'` format (e.g. `'2016-08-07T13:37:00'`).
-
-#### `parseToDatetime($input, $tz_parse = null)`
-Returns a string formatted for a [HTML5 `datetime` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime)
-in the `DateTime::W3C` format *with a timezone* (e.g. `'2016-08-07T13:37:00+01:00'`).
-The timezone in the resulting string will be the `$tz_parse` timezone only when no
-timezone information was present in the `$input`, so make sure to move your
-`DateTime` instance to the desired timezone *before* passing it as `$input`.
 
 ## Check your setup
 This console command will check your Linux system timezone:
