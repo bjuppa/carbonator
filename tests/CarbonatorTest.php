@@ -2,8 +2,9 @@
 
 use FewAgency\Carbonator\Carbonator;
 use Carbon\Carbon;
+use PHPUnit\Framework\TestCase;
 
-class CarbonatorTest extends PHPUnit_Framework_TestCase
+class CarbonatorTest extends TestCase
 {
     public function testParseToTzReturnsNullOnFail()
     {
