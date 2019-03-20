@@ -107,14 +107,6 @@ and you should keep that as `UTC` unless you really know what you're trying to a
 another setting.
 Read more below in [Check your setup](#checkyoursetup).
 
-If you want to help your users select a timezone,
-[PHP's `timezone_identifiers_list()`](http://php.net/manual/en/function.timezone-identifiers-list.php)
-is a nice tool to find relevant timezones by country or continent
-and [PHP's `timezone_abbreviations_list()`](http://php.net/manual/en/datetimezone.listabbreviations.php)
-will give you info about available timezone abbreviations like `est`, `cet`, etc.
-
-In Laravel, there's a handy [validation rule for timezone identifiers](https://laravel.com/docs/validation#rule-timezone).
-
 ### Methods
 
 #### `Carbon::parse($input, $tz_parse = null)`
@@ -143,6 +135,25 @@ Returns a string formatted for a
 in the `'Y-m-d\TH:i'` format (e.g. `'2016-08-07T13:37'`), with no timezone information.
 Be kind to your users and display the timezone next to your input, perhaps in the `<label>`
 or in an element referenced through the input's `aria-describedby` attribute.
+
+## Figuring out users' timezones
+
+There's no way to know a user's timezone for sure, without asking them.
+If you want to help your users select a timezone,
+[PHP's `timezone_identifiers_list()`](http://php.net/manual/en/function.timezone-identifiers-list.php)
+is a nice tool to find relevant timezones by country or continent.
+
+The list is quite long though, so you could do IP-location on the server side to suggest a timezone to the user.
+For Laravel there's a package called [Laravel Geoip](http://lyften.com/projects/laravel-geoip/) doing just that
+by connecting to different services.
+
+In the browser you could run some javascript, for example
+[jstimezonedetect](https://www.npmjs.com/package/jstimezonedetect)
+to guess the _named timezone_ of your user from the _timezone offset_ reported by their operating system.
+Or you could use the browser's [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API),
+but that could be seen as a bit intrusive by the user, with permissions and everything.
+
+In Laravel, there's a handy [validation rule for timezone identifiers](https://laravel.com/docs/validation#rule-timezone).
 
 ## Check your setup
 
