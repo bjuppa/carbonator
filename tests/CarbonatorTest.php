@@ -26,7 +26,7 @@ class CarbonatorTest extends TestCase
 
     public function testParseToTzWithTargetTz()
     {
-        $c = Carbonator::parseToTz('tomorrow 13:37', '+1');
+        $c = Carbonator::parseToTz('tomorrow 13:37', '+01:00');
 
         $this->assertEquals('+01:00', $c->tzName);
         $this->assertEquals('14:37:00', $c->toTimeString());
@@ -34,7 +34,7 @@ class CarbonatorTest extends TestCase
 
     public function testParseToTzWithParseTz()
     {
-        $c = Carbonator::parseToTz('tomorrow 13:37', '-1', '+1');
+        $c = Carbonator::parseToTz('tomorrow 13:37', '-01:00', '+01:00');
 
         $this->assertEquals('-01:00', $c->tzName);
         $this->assertEquals('11:37:00', $c->toTimeString());
@@ -74,7 +74,7 @@ class CarbonatorTest extends TestCase
     {
         $this->assertEquals(
             '2016-08-05T14:37:00+02:00',
-            Carbonator::formatInTz('2016-08-05 13:37 +01:00', Carbon::W3C, '+2')
+            Carbonator::formatInTz('2016-08-05 13:37 +01:00', Carbon::W3C, '+02:00')
         );
     }
 
@@ -90,7 +90,7 @@ class CarbonatorTest extends TestCase
     {
         $this->assertEquals(
             '2016-08-05T13:37:00',
-            Carbonator::parseToDatetimeLocal('2016-08-05 13:37 +01:00', '+1')
+            Carbonator::parseToDatetimeLocal('2016-08-05 13:37 +01:00', '+01:00')
         );
     }
 
@@ -98,7 +98,7 @@ class CarbonatorTest extends TestCase
     {
         $this->assertEquals(
             '2016-08-05T15:37:00',
-            Carbonator::parseToDatetimeLocal('2016-08-05 13:37', '+1', '-1')
+            Carbonator::parseToDatetimeLocal('2016-08-05 13:37', '+01:00', '-01:00')
         );
     }
 
@@ -114,7 +114,7 @@ class CarbonatorTest extends TestCase
     {
         $this->assertEquals(
             '2016-08-05T13:37:00+01:00',
-            Carbonator::parseToDatetime('2016-08-05 13:37', '+1')
+            Carbonator::parseToDatetime('2016-08-05 13:37', '+01:00')
         );
     }
 
