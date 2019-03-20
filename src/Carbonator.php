@@ -22,17 +22,17 @@ class Carbonator
             return Carbon::instance($input);
         }
 
-        if (!is_array($input) and strlen(trim($input))) {
-            // Not parsing if "empty", but lets 0 through - it will be interpreted as unix timestamp
-            try {
-                // Strings are parsed in the specified or default timezone
-                return Carbon::parse($input, $tz_parse);
-            } catch (\Exception $e) {
-                // Any failed parsing
-            }
+        if (!is_string($input) or !strlen(trim($input))) {
+            // Don't parse "empty" input, but let 0 through - it will be interpreted as a unix timestamp
+            return null;
         }
 
-        return null;
+        try {
+            // Strings are parsed in the specified or default timezone
+            return Carbon::parse($input, $tz_parse);
+        } catch (\Exception $e) {
+            return null;
+        }
     }
 
     /**
