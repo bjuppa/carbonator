@@ -24,14 +24,14 @@ echo $in_utc->toCookieString();
 
 echo "\n\n";
 
-// Populate a datetime-local input for a user in Japan:
+// Populate a HTML5 datetime-local input for a user in Japan:
 $in_utc = Carbon::parse('2016-08-07 13:37');
 echo Carbonator::parseToDatetimeLocal($in_utc, 'Asia/Tokyo');
 // 2016-08-07T22:37:00
 
 echo "\n\n";
 
-// Populate a datetime input
+// Populate a (deprecated) HTML5 datetime input
 $in_namibia = Carbon::parse('2016-08-07 13:37 Africa/Windhoek');
 // Windhoek is 1 hour ahead of UTC when not on daylight savings time
 echo Carbonator::parseToDatetime($in_namibia);
