@@ -38,11 +38,3 @@ echo Carbonator::parseToDatetimeLocal($in_utc, 'Asia/Tokyo');
 // 2016-08-07T22:37
 
 echo "\n\n";
-
-// Populate a (deprecated) HTML5 datetime input
-$in_namibia = Carbon::parse('2016-08-07 13:37 Africa/Windhoek');
-// Windhoek is 1 hour ahead of UTC when not on daylight savings time
-echo Carbonator::parseToDatetime($in_namibia);
-// 2016-08-07T13:37:00+01:00
-
-echo "\n\n";
