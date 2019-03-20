@@ -1,0 +1,27 @@
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+language: php
+
+matrix:
+  include:
+    - php: 7.1
+      env: CARBON='1.*'
+    - php: 7.3
+      env: CARBON='2.*'
+  fast_finish: true
+
+before_install:
+  - travis_retry composer self-update
+  - travis_retry composer require "nesbot/carbon:${CARBON}" --no-interaction --no-update
+
+install:
+  - travis_retry composer install --prefer-dist --no-interaction --no-suggest
+
+before_script:
+  - if [[ $COVERAGE == "" ]]; then phpenv config-rm xdebug.ini; fi
+  - composer config discard-changes true
+
+script:
+  - vendor/bin/phpunit
