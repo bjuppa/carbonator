@@ -4,6 +4,10 @@ They help you easily parse or convert `string`s or `DateTime`s between timezones
 
 A good pattern is to always keep your app working with times in the **UTC** timezone internally
 and to store any time data in that default timezone.
+If you're temped to or already use another timezone as default, please read the following article:
+[Always Use UTC Dates And Times](https://medium.com/@kylekatarnls/always-use-utc-dates-and-times-8a8200ca3164).
+
+This is how `Carbonator` can help you juggle those timezones:
 
 1. Actively convert any times to UTC when user data enters the application.
 This is the perfect job for `Carbonator::parseToDefaultTz($input, $tz_parse = null)`.
