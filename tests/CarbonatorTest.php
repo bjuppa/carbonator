@@ -11,9 +11,14 @@ class CarbonatorTest extends TestCase
         $this->assertNull(Carbonator::parseToTz('fail'));
     }
 
-    public function testParseToTzReturnsNullOnEmptyString()
+    public function testParseToTzReturnsNullForEmptyString()
     {
         $this->assertNull(Carbonator::parseToTz(''));
+    }
+
+    public function testParseToTzReturnsNullForSpaceOnlyString()
+    {
+        $this->assertNull(Carbonator::parseToTz('  '));
     }
 
     public function testParseToTz()

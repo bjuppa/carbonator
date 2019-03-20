@@ -22,7 +22,7 @@ class Carbonator
             return Carbon::instance($input);
         }
 
-        if (!is_array($input) and strlen($input)) {
+        if (!is_array($input) and strlen(trim($input))) {
             // Not parsing if "empty", but lets 0 through - it will be interpreted as unix timestamp
             try {
                 // Strings are parsed in the specified or default timezone
