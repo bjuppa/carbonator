@@ -120,11 +120,11 @@ The string is guaranteed to be in the `$tz_target` timezone.
 
 #### `parseToDatetimeLocal($input, $tz_target = null, $tz_parse = null)`
 Returns a string formatted for a
-[HTML5 `datetime-local` input](http://www.w3.org/TR/html-markup/input.datetime-local.html)
+[HTML5 `datetime-local` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
 in the `'Y-m-d\TH:i:s'` format (e.g. `'2016-08-07T13:37:00'`).
 
 #### `parseToDatetime($input, $tz_parse = null)`
-Returns a string formatted for a [HTML5 `datetime` input](http://www.w3.org/TR/html-markup/input.datetime.html)
+Returns a string formatted for a [HTML5 `datetime` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime)
 in the `DateTime::W3C` format *with a timezone* (e.g. `'2016-08-07T13:37:00+01:00'`).
 The timezone in the resulting string will be the `$tz_parse` timezone only when no
 timezone information was present in the `$input`, so make sure to move your
