@@ -117,26 +117,26 @@ In Laravel, there's a handy [validation rule for timezone identifiers](https://l
 
 ### Methods
 
-#### `parse($input, $tz_parse = null)`
+#### `Carbon::parse($input, $tz_parse = null)`
 
 Returns a `Carbon` instance.
 Note that the timezone of the output doesn't always match the supplied context timezone
 from the 2nd parameter. The output is just guaranteed to be `Carbon` or `null`.
 
-#### `parseToTz($input, $tz_target = null, $tz_parse = null)`
+#### `Carbon::parseToTz($input, $tz_target = null, $tz_parse = null)`
 
 Returns a `Carbon` instance, guaranteed to be in the `$tz_target` timezone.
 
-#### `parseToDefaultTz($input, $tz_parse = null)`
+#### `Carbon::parseToDefaultTz($input, $tz_parse = null)`
 
 Returns a `Carbon` instance, guaranteed to be in the PHP default timezone.
 
-#### `formatInTz($input, $format, $tz_target = null, $tz_parse = null)`
+#### `Carbon::formatInTz($input, $format, $tz_target = null, $tz_parse = null)`
 
 Returns a string formatted according to the `$format` - see [docs for PHP's `date()`](http://php.net/manual/en/function.date.php).
 The string is guaranteed to be in the `$tz_target` timezone.
 
-#### `parseToDatetimeLocal($input, $tz_target = null, $tz_parse = null)`
+#### `Carbon::parseToDatetimeLocal($input, $tz_target = null, $tz_parse = null)`
 
 Returns a string formatted for a
 [HTML5 `datetime-local` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
