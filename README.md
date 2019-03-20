@@ -140,7 +140,7 @@ The string is guaranteed to be in the `$tz_target` timezone.
 
 Returns a string formatted for a
 [HTML5 `datetime-local` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
-in the `'Y-m-d\TH:i:s'` format (e.g. `'2016-08-07T13:37:00'`).
+in the `'Y-m-d\TH:i'` format (e.g. `'2016-08-07T13:37'`).
 
 ## Check your setup
 
