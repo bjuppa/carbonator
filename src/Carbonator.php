@@ -7,7 +7,7 @@ use DateTimeZone;
 
 class Carbonator
 {
-    const DATETIMELOCAL = 'Y-m-d\TH:i:s';
+    const DATETIMELOCAL = 'Y-m-d\TH:i';
 
     /**
      * @param string|DateTime $input
