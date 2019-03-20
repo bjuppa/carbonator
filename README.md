@@ -31,7 +31,7 @@ echo $in_utc->toCookieString();
 $in_utc = Carbon::parse('2016-08-07 13:37');
 echo Carbonator::parseToDatetimeLocal($in_utc, 'Asia/Tokyo');
 // 2016-08-07T22:37:00
-
+```
 
 ## Installation & Configuration
 > composer require fewagency/carbonator
