@@ -17,7 +17,7 @@ matrix:
 before_install:
   - if [[ $COVERAGE == "" ]]; then phpenv config-rm xdebug.ini; fi
   - travis_retry composer self-update
-  - if [[ $CARBON != "" ]]; then travis_retry composer require "nesbot/carbon:${CARBON}" --no-interaction --no-update; fi
+  - if [[ $CARBON != "" ]]; then composer require "nesbot/carbon:${CARBON}" --no-interaction --no-update; fi
 
 install:
   - travis_retry composer install --prefer-dist --no-interaction --no-suggest
