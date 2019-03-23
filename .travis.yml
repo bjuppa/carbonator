@@ -15,6 +15,7 @@ matrix:
   fast_finish: true
 
 before_install:
+  - if [[ $COVERAGE == "" ]]; then phpenv config-rm xdebug.ini; fi
   - travis_retry composer self-update
   - if [[ $CARBON != "" ]]; then travis_retry composer require "nesbot/carbon:${CARBON}" --no-interaction --no-update; fi
 
@@ -23,7 +24,6 @@ install:
   - if [[ $PREFER_LOWEST != "" ]]; then travis_retry composer update $PREFER_LOWEST; fi
 
 before_script:
-  - if [[ $COVERAGE == "" ]]; then phpenv config-rm xdebug.ini; fi
   - composer config discard-changes true
 
 script:
