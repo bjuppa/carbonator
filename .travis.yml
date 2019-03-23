@@ -16,11 +16,11 @@ matrix:
 
 before_install:
   - travis_retry composer self-update
-  - if [[ $CARBON != "" ]]; then travis_retry composer require "nesbot/carbon:${CARBON}" --no-interaction --no-update ; fi
+  - if [[ $CARBON != "" ]]; then travis_retry composer require "nesbot/carbon:${CARBON}" --no-interaction --no-update; fi
 
 install:
   - travis_retry composer install --prefer-dist --no-interaction --no-suggest
-  - if [[ $PREFER_LOWEST != "" ]]; travis_retry composer update $PREFER_LOWEST; fi
+  - if [[ $PREFER_LOWEST != "" ]]; then travis_retry composer update $PREFER_LOWEST; fi
 
 before_script:
   - if [[ $COVERAGE == "" ]]; then phpenv config-rm xdebug.ini; fi
