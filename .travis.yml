@@ -22,7 +22,7 @@ install:
   - travis_retry composer install --prefer-dist --no-interaction --no-suggest
   - if [[ $PREFER_LOWEST != "" ]]; travis_retry composer update $PREFER_LOWEST; fi
 
-  before_script:
+before_script:
   - if [[ $COVERAGE == "" ]]; then phpenv config-rm xdebug.ini; fi
   - composer config discard-changes true
 
