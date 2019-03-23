@@ -23,8 +23,5 @@ install:
   - travis_retry composer install --prefer-dist --no-interaction --no-suggest
   - if [[ $PREFER_LOWEST != "" ]]; then travis_retry composer update $PREFER_LOWEST; fi
 
-before_script:
-  - composer config discard-changes true
-
 script:
   - vendor/bin/phpunit
