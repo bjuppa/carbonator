@@ -7,21 +7,21 @@ language: php
 matrix:
   include:
     - php: 7.1
+      env: PREFER_LOWEST="--prefer-lowest --prefer-stable"
+    - php: 7.2
       env: CARBON='1.*'
     - php: 7.3
       env: CARBON='2.*'
   fast_finish: true
 
 before_install:
+  - if [[ $COVERAGE == "" ]]; then phpenv config-rm xdebug.ini; fi
   - travis_retry composer self-update
-  - travis_retry composer require "nesbot/carbon:${CARBON}" --no-interaction --no-update
+  - if [[ $CARBON != "" ]]; then composer require "nesbot/carbon:${CARBON}" --no-interaction --no-update; fi
 
 install:
   - travis_retry composer install --prefer-dist --no-interaction --no-suggest
-
-before_script:
-  - if [[ $COVERAGE == "" ]]; then phpenv config-rm xdebug.ini; fi
-  - composer config discard-changes true
+  - if [[ $PREFER_LOWEST != "" ]]; then travis_retry composer update $PREFER_LOWEST; fi
 
 script:
   - vendor/bin/phpunit
