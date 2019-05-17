@@ -109,26 +109,26 @@ Read more below in [Check your setup](#checkyoursetup).
 
 ### Methods
 
-#### `Carbon::parse($input, $tz_parse = null)`
+#### `Carbonator::parse($input, $tz_parse = null)`
 
 Returns a `Carbon` instance.
 Note that the timezone of the output doesn't always match the supplied context timezone
 from the 2nd parameter. The output is just guaranteed to be `Carbon` or `null`.
 
-#### `Carbon::parseToTz($input, $tz_target = null, $tz_parse = null)`
+#### `Carbonator::parseToTz($input, $tz_target = null, $tz_parse = null)`
 
 Returns a `Carbon` instance, guaranteed to be in the `$tz_target` timezone.
 
-#### `Carbon::parseToDefaultTz($input, $tz_parse = null)`
+#### `Carbonator::parseToDefaultTz($input, $tz_parse = null)`
 
 Returns a `Carbon` instance, guaranteed to be in the PHP default timezone.
 
-#### `Carbon::formatInTz($input, $format, $tz_target = null, $tz_parse = null)`
+#### `Carbonator::formatInTz($input, $format, $tz_target = null, $tz_parse = null)`
 
 Returns a string formatted according to the `$format` - see [docs for PHP's `date()`](http://php.net/manual/en/function.date.php).
 The string is guaranteed to be in the `$tz_target` timezone.
 
-#### `Carbon::parseToDatetimeLocal($input, $tz_target = null, $tz_parse = null)`
+#### `Carbonator::parseToDatetimeLocal($input, $tz_target = null, $tz_parse = null)`
 
 Returns a string formatted for a
 [HTML5 `datetime-local` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
