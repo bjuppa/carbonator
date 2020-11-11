@@ -45,7 +45,7 @@ echo Carbonator::formatInTz($in_utc, 'D, M j, Y H:i T', 'Africa/Windhoek');
 // Populate a HTML5 datetime-local input for a user in Japan:
 $in_utc = Carbon::parse('2016-08-07 13:37');
 echo Carbonator::parseToDatetimeLocal($in_utc, 'Asia/Tokyo');
-// 2016-08-07T22:37
+// 2016-08-07 22:37
 ```
 
 ## Installation & Configuration
