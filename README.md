@@ -45,7 +45,13 @@ echo Carbonator::formatInTz($in_utc, 'D, M j, Y H:i T', 'Africa/Windhoek');
 // Populate a HTML5 datetime-local input for a user in Japan:
 $in_utc = Carbon::parse('2016-08-07 13:37');
 echo Carbonator::parseToDatetimeLocal($in_utc, 'Asia/Tokyo');
-// 2016-08-07T22:37
+// 2016-08-07 22:37
+
+
+// Populate a HTML5 datetime attribute
+$in_india = Carbon::parse('2016-08-07 13:37', 'Asia/Kolkata');
+echo Carbonator::parseToDatetime($in_india);
+// 2016-08-07T13:37:00+05:30
 ```
 
 ## Installation & Configuration
@@ -131,10 +137,17 @@ The string is guaranteed to be in the `$tz_target` timezone.
 #### `Carbonator::parseToDatetimeLocal($input, $tz_target = null, $tz_parse = null)`
 
 Returns a string formatted for a
-[HTML5 `datetime-local` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
-in the `'Y-m-d\TH:i'` format (e.g. `'2016-08-07T13:37'`), with no timezone information.
+[HTML5 `datetime-local` `<input/> element`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
+in the `'Y-m-d H:i'` format (e.g. `'2016-08-07 13:37'`), with no timezone information.
 Be kind to your users and display the timezone next to your input, perhaps in the `<label>`
 or in an element referenced through the input's `aria-describedby` attribute.
+
+#### `Carbonator::parseToDatetime($input, $tz_target = null, $tz_parse = null)`
+
+Returns a string formatted in the
+["W3C" format](https://www.php.net/manual/en/class.datetimeinterface.php#datetime.constants.w3c)
+`'Y-m-d\TH:i:sP'` (e.g. `'2016-08-07T13:37:00+00:00'`), suitable for a
+[HTML5 `<time/>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)'s `datetime` attribute.
 
 ## Figuring out users' timezones
 
