@@ -131,7 +131,7 @@ The string is guaranteed to be in the `$tz_target` timezone.
 #### `Carbonator::parseToDatetimeLocal($input, $tz_target = null, $tz_parse = null)`
 
 Returns a string formatted for a
-[HTML5 `datetime-local` input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
+[HTML5 `datetime-local` `<input/> element`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
 in the `'Y-m-d H:i'` format (e.g. `'2016-08-07 13:37'`), with no timezone information.
 Be kind to your users and display the timezone next to your input, perhaps in the `<label>`
 or in an element referenced through the input's `aria-describedby` attribute.
