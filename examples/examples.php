@@ -38,3 +38,10 @@ echo Carbonator::parseToDatetimeLocal($in_utc, 'Asia/Tokyo');
 // 2016-08-07 22:37
 
 echo "\n\n";
+
+// Populate a HTML5 datetime attribute
+$in_india = Carbon::parse('2016-08-07 13:37', 'Asia/Kolkata');
+echo Carbonator::parseToDatetime($in_india);
+// 2016-08-07T13:37:00+05:30
+
+echo "\n\n";
