@@ -136,6 +136,13 @@ in the `'Y-m-d H:i'` format (e.g. `'2016-08-07 13:37'`), with no timezone inform
 Be kind to your users and display the timezone next to your input, perhaps in the `<label>`
 or in an element referenced through the input's `aria-describedby` attribute.
 
+#### `Carbonator::parseToDatetime($input, $tz_target = null, $tz_parse = null)`
+
+Returns a string formatted in the
+["W3C" format](https://www.php.net/manual/en/class.datetimeinterface.php#datetime.constants.w3c)
+`'Y-m-d\TH:i:sP'` (e.g. `'2016-08-07T13:37:00+00:00'`), suitable for a
+[HTML5 `<time/>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)'s `datetime` attribute.
+
 ## Figuring out users' timezones
 
 There's no way to know a user's timezone for sure, without asking them.
