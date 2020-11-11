@@ -1,4 +1,5 @@
 <?php
+
 namespace FewAgency\Carbonator;
 
 use Carbon\Carbon;
